@@ -8,7 +8,7 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const transporter=nodemailer.createTransport({
   service:'gmail',
   auth:{
-      user:'bhagyalakshmi96.k@gmail.com',
+      user:'nbrisilla@gmail.com',
       pass:process.env.PASSWORD
   }
 });
@@ -70,7 +70,7 @@ router.post ('/register',async(req,res)=>
                  
                    //sending confirmation mail
                   var mailOptions = {
-                    from: 'bhagyalakshmi96.k@gmail.com', // sender address
+                    from: 'nbrisilla@gmail.com', // sender address
                     to: req.body.email, // list of receivers
                     subject: "Welcome to Help Desk Ticketing :::: Hii,there !", // Subject line
                     html:
@@ -109,9 +109,9 @@ router.post ('/register',async(req,res)=>
                   const token =  await JWT.sign({email},JWT_SECRET,)
                   console.log(token);
                     var mailOptions = {
-                    from: 'bhagyalakshmi96.k@gmail.com', // sender address
+                    from: 'nbrisilla@gmail.com', // sender address
                     to: req.body.email, // list of receivers
-                    subject: "Welcome to Help Desk Ticketing :::: Hii,there !", // Subject line
+                    subject: "Welcome to Zen Desk Ticketing :::: Hii,there !", // Subject line
                     html:
 
                     `<h3> Hello</h3>
@@ -201,9 +201,9 @@ router.post("/login",async(req,res)=>{
                       let username = userFirstname.concat(userlastname);
                   
                       let info = await transporter.sendMail({
-                          from: 'bhagyalakshmi96.k@gmail.com', // sender address
+                          from: 'nbrisilla.com', // sender address
                           to: req.body.email, // list of receivers
-                          subject: "HelpDesk Ticketing :::: Welcome!!!", // Subject line
+                          subject: "ZenDesk Ticketing :::: Welcome!!!", // Subject line
                           html: "<h3>Hello "+username+"</h3><p>Welcome, you have successfully loggedin to HelpDesk.Enjoy our services.</p>", // html body
                       })
                       res.send({message:"Login Successful !!",token,email});
@@ -247,9 +247,9 @@ router.post('/forgetpassword',async(req,res)=>{
           let userlastname = data.lastname;
           let username = userFirstname.concat(userlastname);
                       let info = await transporter.sendMail({
-                          from: 'bhagyalakshmi96.k@gmail.com', // sender address
+                          from: 'nbrisilla@gmail.com', // sender address
                           to: req.body.email, // list of receivers
-                          subject: "HelpDesk Ticketing :::: Reset your password", // Subject line
+                          subject: "ZenDesk Ticketing :::: Reset your password", // Subject line
                           html: 
                           `<h3> Hi ${username}, </h3>
                           <p>We are sending you this email because you requested a password reset.</p>
